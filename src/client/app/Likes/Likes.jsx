@@ -1,3 +1,7 @@
+/**
+ * main likes component
+ */
+
 import React from "react";
 import Reflux from "reflux";
 import LikesStore from "./_store.jsx"
@@ -14,6 +18,11 @@ var Likes = React.createClass({
 		};
 	},
 
+	/**
+	 * listen on change to data store and update
+	 * self state
+	 * @return {void}
+	 */
 	changed: function () {
 		this.setState({
 			likes: LikesStore.getLikes(),

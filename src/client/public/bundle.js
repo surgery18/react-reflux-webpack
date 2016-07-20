@@ -21689,6 +21689,11 @@
 			};
 		},
 	
+		/**
+	  * listen on change to data store and update
+	  * self state
+	  * @return {void}
+	  */
 		changed: function changed() {
 			this.setState({
 				likes: _store2.default.getLikes()
@@ -21703,7 +21708,9 @@
 				_react2.default.createElement(_likes3.default, { likes: this.state.likes })
 			);
 		}
-	});
+	}); /**
+	     * main likes component
+	     */
 	
 	module.exports = Likes;
 
@@ -23207,24 +23214,42 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/**
+	 * central data store for all likes
+	 */
+	
 	var LikesStore = _reflux2.default.createStore({
-		likes: 0,
+		likes: 0, // no. of likes
 	
 		init: function init() {
 			this.listenTo(_actions2.default.addLike, this.increment);
 			this.listenTo(_actions2.default.removeLike, this.decrement);
 		},
 	
+		/**
+	  * add a like
+	  * @return {void}
+	  */
 		increment: function increment() {
 			this.likes += 1;
 			this.trigger(this.likes);
 		},
 	
+		/**
+	  * remove a like
+	  * @return {void}
+	  */
 		decrement: function decrement() {
 			this.likes -= this.likes === 0 ? 0 : 1;
 			this.trigger(this.likes);
 		},
 	
+		/* public interface */
+	
+		/**
+	  * likes getter
+	  * @return {int}
+	  */
 		getLikes: function getLikes() {
 			return this.likes;
 		}
@@ -23247,7 +23272,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var LikesActions = _reflux2.default.createActions(["addLike", "removeLike"]);
+	var LikesActions = _reflux2.default.createActions(["addLike", "removeLike"]); /**
+	                                                                               * all likes related actions
+	                                                                               */
 	
 	module.exports = LikesActions;
 
@@ -23269,6 +23296,10 @@
 	var _reflux2 = _interopRequireDefault(_reflux);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/**
+	 * barebones likes display
+	 */
 	
 	var _likes = _react2.default.createClass({
 		displayName: "_likes",
@@ -23312,10 +23343,18 @@
 		displayName: "_liker",
 	
 	
+		/**
+	  * like this
+	  * @return {void}
+	  */
 		like: function like() {
 			_actions2.default.addLike();
 		},
 	
+		/**
+	  * dislike this
+	  * @return {void}
+	  */
 		dislike: function dislike() {
 			_actions2.default.removeLike();
 		},
@@ -23336,7 +23375,9 @@
 				)
 			);
 		}
-	});
+	}); /**
+	     * handle interactions for likes
+	     */
 	
 	module.exports = _liker;
 

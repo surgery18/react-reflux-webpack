@@ -1,3 +1,7 @@
+/**
+ * all likes related actions
+ */
+
 import Reflux from "reflux";
 
 var LikesActions = Reflux.createActions([

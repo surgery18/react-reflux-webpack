@@ -1,3 +1,7 @@
+/**
+ * barebones likes display
+ */
+
 import React from "react";
 import Reflux from "reflux";
 

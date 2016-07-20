@@ -1,13 +1,25 @@
+/**
+ * handle interactions for likes
+ */
+
 import React from "react";
 import Reflux from "reflux";
 import LikesActions from "./_actions.jsx";
 
 var _liker = React.createClass({
 
+	/**
+	 * like this
+	 * @return {void}
+	 */
 	like: function () {
 		LikesActions.addLike();
 	},
 
+	/**
+	 * dislike this
+	 * @return {void}
+	 */
 	dislike: function () {
 		LikesActions.removeLike();
 	},
