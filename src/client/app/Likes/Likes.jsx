@@ -1,42 +1,35 @@
-/**
- * main likes component
- */
-
 import React from "react";
-import Reflux from "reflux";
-import LikesStore from "./_store.jsx"
-import _likes from "./_likes.jsx"
-import _liker from "./_liker.jsx"
+import _likes from "./_likes.jsx";
 
 var Likes = React.createClass({
 
-	mixins: [Reflux.listenTo(LikesStore, "changed")],
+  getInitialState: function() {
+    return {
+      likes: 0,
+    };
+  },
 
-	getInitialState: function () {
-		return {
-			likes: LikesStore.getLikes(),
-		};
-	},
+  like: function() {
+    this.setState({likes: this.state.likes+1});
+  },
 
-	/**
-	 * listen on change to data store and update
-	 * self state
-	 * @return {void}
-	 */
-	changed: function () {
-		this.setState({
-			likes: LikesStore.getLikes(),
-		});
-	},
+  dislike: function() {
+    if(this.state.likes > 0)
+      this.setState({likes: this.state.likes-1});
+  },
 
-	render: function () {
-		return (
-			<div className="likes">
-				<_liker />
-				<_likes likes={this.state.likes} />
-			</div>
-		);
-	}
+  render: function() {
+    return (
+      <div className="Likes">
+        <div className="liker">
+          <button onClick={this.like}>+</button>
+          <button onClick={this.dislike}>-</button>
+        </div>
+        <_likes likes={this.state.likes}/>
+      </div>
+    );
+  }
+
 });
 
 module.exports = Likes;

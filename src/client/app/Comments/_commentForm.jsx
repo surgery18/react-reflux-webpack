@@ -12,7 +12,8 @@ var _commentForm = React.createClass({
 
   handleSubmit: function(e) {
     e.preventDefault();
-    CommentsActions.addComment(this.state.text);
+    if(this.state.text)
+      CommentsActions.addComment(this.state.text);
     this.setState({text: ""});
   },
 

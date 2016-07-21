@@ -23,7 +23,7 @@ var Comments = React.createClass({
   render: function () {
     var commentNodes = this.state.comments.map(function(comment) {
       return (
-        <_comment comment={comment} />
+        <_comment text={comment} />
       );
     });
 		return (
