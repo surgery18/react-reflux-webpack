@@ -4,6 +4,6 @@ Installation
 ===
 
 `npm i`  
-`./node_modules/.bin/webpack -d`
+`npm start`
 
-Open `index.html` in your browser
+Open `localhost:3000` in your browser
