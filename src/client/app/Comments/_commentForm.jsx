@@ -1,5 +1,4 @@
 import React from "react";
-import Reflux from "reflux";
 import CommentsActions from "./_actions.jsx";
 
 var _commentForm = React.createClass({

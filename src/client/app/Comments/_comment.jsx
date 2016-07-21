@@ -1,5 +1,4 @@
 import React from "react";
-import Reflux from "reflux";
 import Likes from "../Likes/Likes.jsx";
 
 var _comment = React.createClass({
