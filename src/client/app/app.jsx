@@ -1,5 +1,6 @@
 import React from "react";
 import Likes from "./Likes/Likes.jsx";
+import Comments from "./Comments/Comments.jsx";
 
 class App extends React.Component {
 	render () {
@@ -7,6 +8,8 @@ class App extends React.Component {
 			<div className="app">
 				<p>Working with - watch!</p>
 				<Likes />
+				<br />
+				<Comments />
 			</div>
 		);
 	}
