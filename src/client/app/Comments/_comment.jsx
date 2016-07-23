@@ -4,7 +4,7 @@ import Likes from "../Likes/Likes.jsx";
 var _comment = React.createClass({
   render: function(){
     return (
-      <div className="Comment">Comment: {this.props.text}<Likes/></div>
+      <div className="comment"><span>Comment: {this.props.text}</span><Likes/></div>
     );
   }
 });

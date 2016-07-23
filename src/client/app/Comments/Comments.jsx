@@ -6,28 +6,18 @@ import _comment from "./_comment.jsx";
 
 var Comments = React.createClass({
 
-  mixins: [Reflux.listenTo(CommentsStore, "changed")],
-
-  getInitialState: function () {
-		return {
-      comments: CommentsStore.getComments(),
-    }
-  },
-
-  changed: function () {
-		this.setState({
-			comments: CommentsStore.getComments(),
-		});
-	},
+  mixins: [Reflux.connect(CommentsStore, "comments")],
 
   render: function () {
-    var commentNodes = this.state.comments.map(function(comment) {
-      return (
-        <_comment text={comment} />
-      );
-    });
+    var commentNodes = null;
+    if(this.state.comments)
+      var commentNodes = this.state.comments.map(function(comment) {
+        return (
+          <_comment text={comment} />
+        );
+      });
 		return (
-      <div>
+      <div className="comment-section">
   			<div className="comments">
           {commentNodes}
   			</div>

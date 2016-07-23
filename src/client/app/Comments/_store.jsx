@@ -3,18 +3,11 @@ import CommentsActions from "./_actions.jsx";
 
 var CommentsStore = Reflux.createStore({
   comments: [],
-
-  init: function () {
-    this.listenTo(CommentsActions.addComment, this.addComment);
-  },
+  listenables: CommentsActions,
 
   addComment: function(c) {
     this.comments.push(c);
     this.trigger(this.comments);
-  },
-
-  getComments: function() {
-    return this.comments;
   }
 });
 

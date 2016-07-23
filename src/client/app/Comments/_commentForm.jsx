@@ -22,7 +22,7 @@ var _commentForm = React.createClass({
 
   render: function() {
     return (
-      <div className="commentForm">
+      <div className="comment-form">
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="comment" onChange={this.onChange} value={this.state.text}/>
           <input type="submit" value="Submit"/>

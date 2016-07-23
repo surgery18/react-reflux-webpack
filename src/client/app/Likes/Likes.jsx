@@ -20,7 +20,7 @@ var Likes = React.createClass({
 
   render: function() {
     return (
-      <div className="Likes">
+      <div className="like">
         <div className="liker">
           <button onClick={this.like}>+</button>
           <button onClick={this.dislike}>-</button>

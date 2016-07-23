@@ -27,6 +27,11 @@ var config = {
 			include: APP_DIR,
 			loaders: ["react-hot", "babel"],
 		}]
+	},
+	externals: {
+	  'react/addons': true,
+	  'react/lib/ExecutionEnvironment': true,
+	  'react/lib/ReactContext': true
 	}
 };
 
